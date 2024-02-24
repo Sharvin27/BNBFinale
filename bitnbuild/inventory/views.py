@@ -3,6 +3,7 @@ from .models import Category
 from .forms import ProductForm
 
 def index(request):
+    send_expiration_via_sms()
     return render(request, 'base.html')
 
 
@@ -11,7 +12,7 @@ def add_inventory(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponse('Product added successfully!')
+            return redirect(display_inventory)
     else:
         form = ProductForm()
     categories = Category.objects.all()
@@ -24,6 +25,11 @@ def display_inventory(request):
 
     # Render the template with the categories and associated products
     return render(request, 'inventory/inventory.html', {'categories': categories})
+
+from twilio.rest import Client
+
+
+
     
 from django.http import HttpResponse
 from reportlab.lib.pagesizes import letter

@@ -9,7 +9,7 @@
         {% for product in category.product_set.all %}
             <div class="col-md-3 mb-3">
                 <div class="card">
-                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" width="200" height="200">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">Price: ${{ product.price }}</p>
