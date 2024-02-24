@@ -58,16 +58,3 @@ from twilio.rest import Client
 
 
 
-def send_report_via_sms(qty):
-    account_sid = 'ACbf6cee76099df8fffbf3b1956c747fcd'
-    auth_token = '727f773bf34138354ce81640b466ce32'
-    client = Client(account_sid, auth_token)
-
-    message = client.messages.create(
-    from_='whatsapp:+14155238886',
-                                    body=f'Hello, Aryan \nProduct Name : Banana\nQuantity Left:{qty}\nPlease refill the stock',
-
-    to='whatsapp:+919653484071'
-    )
-
-    print(message.sid)
