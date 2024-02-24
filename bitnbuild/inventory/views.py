@@ -3,7 +3,7 @@ from .models import Category
 from .forms import ProductForm
 
 def index(request):
-    send_expiration_via_sms()
+    # send_expiration_via_sms()
     return render(request, 'base.html')
 
 
