@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Add Inventory {% endblock title %}
+
+{% block content %}
+<div class="container">
+    {% for category in categories %}
+    <h2>{{ category.name }}</h2>
+    <div class="row">
+        {% for product in category.product_set.all %}
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" width="200" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">Price: ${{ product.price }}</p>
+                        <p class="card-text">Quantity Remaining: {{ product.quantity_remaining }}</p>
+                        <p class="card-text">Expiration Date: {{ product.date_expiration }}</p>
+
+                        <!-- Add any other product details as needed -->
+                        <a href="#" class="btn btn-dark">View Details</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+{% endblock %}
