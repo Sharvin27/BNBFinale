@@ -16,10 +16,6 @@ def product_list(request):
     products = Product.objects.all()
     return render(request, 'product_list.html', {'products': products})
 
-def traders(request):
-    products = Product.objects.all()
-    return render(request, 'traders_marketplace.html', {'products': products})
-
 def bids_page(request):
     return render(request, 'bids.html')
 
