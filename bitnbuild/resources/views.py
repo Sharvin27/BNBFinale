@@ -75,3 +75,6 @@ def order(request):
     return render(request,'resources/order.html',{"resources": r})
 
 
+
+
+
