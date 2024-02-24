@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('inventory.urls')),
     path('', include('yolo.urls')),
-        path('', include('resources.urls')),
+    path('', include('resources.urls')),
 
 ]
 
