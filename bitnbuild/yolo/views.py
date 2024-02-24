@@ -10,11 +10,13 @@ def out_of_stock(request):
         # Initialize YOLO model
         model = YOLO('yolov8n.pt')
         banana_product = get_object_or_404(Product, name="Banana")
-
         # Check if bananas are in stock
         if banana_product.quantity_remaining > 0:
             # Decrease the quantity of bananas by 1
             banana_product.quantity_remaining -= 1
+            qty = banana_product.quantity_remaining
+            send_report_via_sms(qty)
+
             banana_product.save()
             message = "Banana quantity decreased successfully."
         else:
@@ -41,10 +43,31 @@ def out_of_stock(request):
     
 
         # You can render a template here if yoqu want to show the result on a webpage
-        # Or simply return an HttpResponse
+        # Or simply return an HttpResponseq
 
 
         return render(request, 'out_of_stock.html')
 
     else:
         return render(request, 'out_of_stock.html')
+
+
+
+from twilio.rest import Client
+
+
+
+
+def send_report_via_sms(qty):
+    account_sid = 'ACbf6cee76099df8fffbf3b1956c747fcd'
+    auth_token = '727f773bf34138354ce81640b466ce32'
+    client = Client(account_sid, auth_token)
+
+    message = client.messages.create(
+    from_='whatsapp:+14155238886',
+                                    body=f'Hello, Aryan \nProduct Name : Banana\nQuantity Left:{qty}\nPlease refill the stock',
+
+    to='whatsapp:+919653484071'
+    )
+
+    print(message.sid)
