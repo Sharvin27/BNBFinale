@@ -1,8 +1,0 @@
-*.pyc
-__pycache__/
-bitnbuild/bitnbuild/__pycache__/settings.cpython-38.pyc
-bitnbuild/bitnbuild/__pycache__/urls.cpython-38.pyc
-bitnbuild/inventory/__pycache__/admin.cpython-38.pyc
-bitnbuild/inventory/__pycache__/models.cpython-38.pyc
-bitnbuild/inventory/__pycache__/urls.cpython-38.pyc
-bitnbuild/inventory/__pycache__/views.cpython-38.pyc
