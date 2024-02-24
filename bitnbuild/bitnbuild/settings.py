@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'inventory',
     'yolo',
     # 'resources',
+    'social_django',
+    'inventory_recommendation',
+
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware'
+
 ]
 
 ROOT_URLCONF = 'bitnbuild.urls'
@@ -65,6 +70,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+
             ],
         },
     },
@@ -129,3 +136,18 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'add_inventory'
+LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_URL = 'logout'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '248015940088-m1k83r38f37pe0r3c00l2ajue426tttl.apps.googleusercontent.com'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
