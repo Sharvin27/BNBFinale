@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center mb-4">my postings</h2>
+            {% for product in products %}
+            <div class="card mb-4 product-item" data-category="{{ product.category }}">
+                <!-- Card image -->
+                <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+                    <img class="border-radius-lg w-100" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <!-- <h3 class="card-title mb-3">{{ product.name }}</h3> -->
+                    <p class="card-text mb-2">{{ product.description }}</p>
+                    <ul class="list-group list-group-flush mt-2">
+                        <li class="list-group-item"><strong>Category:</strong> {{ product.category }}</li>
+                        <!-- <li class="list-group-item"><strong>Farmer name:</strong> {{ product.farmer_name }}</li> -->
+                        <!-- <li class="list-group-item"><strong>Farmer Contact:</strong> {{ product.farmer_contact }}</li> -->
+                        <li class="list-group-item"><strong>date_of_posting:</strong> {{ product.date_of_posting }}</li>
+                        <!-- <li class="list-group-item"><strong>location:</strong> {{ product.location }}</li> -->
+                    </ul>
+                    <a href="javascript:;" class="btn btn-dark mt-3">Go somewhere</a>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">No products available</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
