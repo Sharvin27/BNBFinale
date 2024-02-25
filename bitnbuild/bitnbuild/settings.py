@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'analysis',
 
     'yolo',
-,
+
     'social_django',
     'inventory_recommendation',
 

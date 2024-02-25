@@ -28,7 +28,7 @@ urlpatterns = [
     path('', include('yolo.urls')),
 
     path('', include('inventory_recommendation.urls')),
-    path('social-auth/', include('social_django.urls', namespace='social'))
+    path('social-auth/', include('social_django.urls', namespace='social')),
 
     path('', include('resources.urls')),
 
