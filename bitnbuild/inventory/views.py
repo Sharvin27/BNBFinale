@@ -6,6 +6,11 @@ def index(request):
     # send_expiration_via_sms()
     return render(request, 'base.html')
 
+def ulogin(request):
+    return render(request, 'pages/sign-in.html')
+
+def dashboard(request):
+    return render(request, 'pages/dashboard.html')
 
 def add_inventory(request):
     if request.method == 'POST':
