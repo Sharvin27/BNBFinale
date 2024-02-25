@@ -21,3 +21,7 @@ def profit(request):
 
 def utilized(request):
     return render(request, 'pages/utilized.html')
+
+
+def table(request):
+    return render(request, 'pages/table.html')
